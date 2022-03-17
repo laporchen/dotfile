@@ -1,2 +1,0 @@
-# dotfile
-Just a dotfile
