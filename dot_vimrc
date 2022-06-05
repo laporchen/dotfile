@@ -55,6 +55,7 @@ filetype indent on
 syntax enable
 "vim color
 autocmd vimenter * ++nested colorscheme gruvbox
+set bg=dark
 let g:pear_tree_repeatable_expand = 0
 "NerdTree setting
 nnoremap <F7> :tabp<CR>
