@@ -1,0 +1,115 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+call plug#begin()
+Plug 'tmsvg/pear-tree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'jparise/vim-graphql'
+Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
+Plug 'leafOfTree/vim-vue-plugin'
+call plug#end()
+
+set nu
+set ai
+set cursorline
+set tabstop=4
+set shiftwidth=4
+set encoding=utf8
+set fileencodings=utf8
+set nohlsearch
+set cindent
+set nowrap
+set smartcase
+set relativenumber
+set incsearch
+set hidden
+set scrolloff=8
+set colorcolumn=120
+set signcolumn=yes
+set noswapfile
+set guicursor=
+set bg=dark
+filetype indent on
+
+
+syntax enable
+"vim color
+let g:pear_tree_repeatable_expand = 0
+colorscheme gruvbox
+
+hi Normal guibg=NONE ctermbg=NONE
+
+"NerdTree setting
+nnoremap <F7> :tabp<CR>
+nnoremap <F8> :tabn<CR>
+nnoremap <F9> :tabe<Space>
+nnoremap <F10> :tabnew<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI=1
+let NERDTreeShowHidden=1
+
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+
+"LSP setting
+let g:lsp_diagnostics_echo_cursor = 1
+
+
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+
+
+" fzf settings
+" This is the default extra key bindings
+let g:fzf_action = {
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+            \ { 'fg':      ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Comment'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+nnoremap <C-p> :Files<CR>
