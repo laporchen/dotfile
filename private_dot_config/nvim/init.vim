@@ -12,6 +12,7 @@ Plug 'jparise/vim-graphql'
 Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
 
 set nu
@@ -34,13 +35,14 @@ set signcolumn=yes
 set noswapfile
 set guicursor=
 set bg=dark
+set nohlsearch
 filetype indent on
 
 
 syntax enable
 "vim color
 let g:pear_tree_repeatable_expand = 0
-colorscheme gruvbox
+colorscheme catppuccin
 
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -50,17 +52,30 @@ nnoremap <F8> :tabn<CR>
 nnoremap <F9> :tabe<Space>
 nnoremap <F10> :tabnew<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-g> :GitGutterDiffOrig<CR> <C-w>K
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
+autocmd InsertLeave * GitGutterEnable
+autocmd BufWritePost * GitGutterEnable
 
 "LSP setting
 let g:lsp_diagnostics_echo_cursor = 1
-
+"vim-vue-plugin setting
+let g:vim_vue_plugin_config = { 
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript'],
+      \   'style': ['css'],
+      \},
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 1,
+      \'keyword': 1,
+      \'foldexpr': 0,
+      \'debug': 0,
+      \}
 
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -112,4 +127,3 @@ let g:fzf_colors =
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-nnoremap <C-p> :Files<CR>
