@@ -22,6 +22,7 @@ set nohlsearch
 set tags=~/vimtags
 filetype indent on
 
+let mapleader=" "
 
 syntax enable
 
