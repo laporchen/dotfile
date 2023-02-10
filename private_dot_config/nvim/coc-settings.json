@@ -1,5 +1,11 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": [
-		"*"
-	]
+	"pairs.enableBackspace" : false,
+	"prettier.formatterPriority": -1,
+    "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+	"prettier.useTabs": true,
+	"prettier.semi": false,
+	"prettier.tabWidth": 4,
+	"prettier.quoteProps": "consistent",
+	"prettier.arrowParens": "always",
+	"prettier.printWidth": 111,
 }
