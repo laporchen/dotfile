@@ -1,4 +1,5 @@
 vim.keymap.set("n","<leader><leader>",":CocCommand prettier.formatFile<CR>")
+vim.keymap.set("n","<leader>e",":CocCommand eslint.executeAutofix<CR>")
 -- Some servers have issues with backup files, see #649
 vim.opt.backup = false
 vim.opt.writebackup = false

@@ -1,10 +1,10 @@
 require("tokyonight").setup({
   -- use the night style
-  style = "moon",
+  style = "storm",
   transparent = true,
   styles = {
     functions = {},
-    sidebars = "transparent", -- style for sidebars, see below
+    sidebars = "dark", -- style for sidebars, see below
     floats = "transparent", -- style for floating windows
   },
 
@@ -14,10 +14,19 @@ require("tokyonight").setup({
   on_colors = function(colors)
     colors.hint = colors.orange
     colors.error = "#ff0000"
+  end,
+
+  on_highlights = function(hl, colors)
+    hl.LineNr = {
+      fg = colors.blue
+    }
+    hl.CursorLineNr = {
+      fg = colors.yellow
+    }
   end
 
 })
 
-vim.cmd.colorscheme("tokyonight")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.cmd.colorscheme("tokyonight")

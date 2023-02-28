@@ -23,5 +23,8 @@ return require('packer').startup(function(use)
   use {'leafgarland/typescript-vim'}
   use {'peitalin/vim-jsx-typescript'}
   use {'nvim-treesitter/playground'}
+  use {'zivyangll/git-blame.vim'}
+  use {'ThePrimeagen/harpoon'}
+  use { "ellisonleao/gruvbox.nvim" }
 
 end)

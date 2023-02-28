@@ -84,10 +84,25 @@ _G.packer_plugins = {
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["git-blame.vim"] = {
+    loaded = true,
+    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/git-blame.vim",
+    url = "https://github.com/zivyangll/git-blame.vim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
   },
   neoformat = {
     loaded = true,

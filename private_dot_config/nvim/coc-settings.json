@@ -1,11 +1,18 @@
 {
-	"pairs.enableBackspace" : false,
+	"pairs.enableBackspace": false,
 	"prettier.formatterPriority": -1,
-    "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+	"pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
 	"prettier.useTabs": true,
 	"prettier.semi": false,
 	"prettier.tabWidth": 4,
 	"prettier.quoteProps": "consistent",
 	"prettier.arrowParens": "always",
 	"prettier.printWidth": 111,
+	"eslint.format.enable": true,
+	"eslint.packageManager": "yarn",
+    "hover.floatConfig": {
+        "border": true
+    },
+    "Lua.diagnostics.globals": ["vim"],
+    "volar.autoClosingTags": true
 }
