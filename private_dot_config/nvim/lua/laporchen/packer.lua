@@ -19,11 +19,11 @@ return require('packer').startup(function(use)
         use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
         use { 'sbdchd/neoformat' }
         use { 'lewis6991/gitsigns.nvim' }
+        use { 'tveskag/nvim-blame-line' }
         -- use {'neoclide/coc.nvim', branch = 'release'}
         use { 'leafgarland/typescript-vim' }
         use { 'peitalin/vim-jsx-typescript' }
         use { 'nvim-treesitter/playground' }
-        use { 'zivyangll/git-blame.vim' }
         use { 'ThePrimeagen/harpoon' }
         use { "ellisonleao/gruvbox.nvim" }
         use {
@@ -55,4 +55,5 @@ return require('packer').startup(function(use)
             "windwp/nvim-autopairs",
             config = function() require("nvim-autopairs").setup {} end
         }
+        use { "windwp/nvim-ts-autotag" }
     end)

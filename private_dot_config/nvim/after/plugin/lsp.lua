@@ -11,7 +11,7 @@ lsp.ensure_installed({
   'pyright',
   'cssls',
   'clangd',
-  'lua_ls'
+  'lua_ls',
 })
 
 -- Fix Undefined global 'vim'
@@ -25,6 +25,16 @@ lsp.configure('lua_ls', {
     }
 })
 
+-- disable python type check
+lsp.configure('pyright', {
+    settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "off"
+      }
+    }
+  }
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
