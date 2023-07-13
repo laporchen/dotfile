@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["eslint.nvim"] = {
     loaded = true,
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/eslint.nvim",
@@ -103,11 +108,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   harpoon = {
     loaded = true,
@@ -129,11 +129,6 @@ _G.packer_plugins = {
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  neoformat = {
-    loaded = true,
-    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/neoformat",
-    url = "https://github.com/sbdchd/neoformat"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -144,11 +139,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
-  },
-  ["nvim-blame-line"] = {
-    loaded = true,
-    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/nvim-blame-line",
-    url = "https://github.com/tveskag/nvim-blame-line"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -199,16 +189,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["typescript-vim"] = {
-    loaded = true,
-    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/typescript-vim",
-    url = "https://github.com/leafgarland/typescript-vim"
-  },
-  ["vim-jsx-typescript"] = {
-    loaded = true,
-    path = "/Users/laporchen/.local/share/nvim/site/pack/packer/start/vim-jsx-typescript",
-    url = "https://github.com/peitalin/vim-jsx-typescript"
   }
 }
 

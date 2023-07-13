@@ -1,5 +1,3 @@
-vim.api.nvim_create_autocmd({"BufEnter"},{
-    pattern = {"*.*"},
-    command = "ToggleBlameLine"
-})
-
+vim.cmd([[
+    nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+]])
