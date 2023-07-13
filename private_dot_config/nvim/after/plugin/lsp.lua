@@ -64,7 +64,6 @@ lsp.set_preferences({
 
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
-  vim.keymap.set("n", "<leader><leader>", "<Cmd>Prettier<CR>")
   vim.keymap.set("n", "<leader>e", "<Cmd>EslintFixAll<CR>")
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
