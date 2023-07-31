@@ -4,7 +4,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'rust_analyzer',
   'eslint',
   'volar',
   'tailwindcss',
@@ -30,7 +29,7 @@ lsp.configure('pyright', {
     settings = {
     python = {
       analysis = {
-        typeCheckingMode = "off"
+        typeCheckingMode = "on"
       }
     }
   }

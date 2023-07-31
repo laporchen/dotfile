@@ -21,5 +21,3 @@ prettier.setup({
         "yaml",
     },
 })
-
-
