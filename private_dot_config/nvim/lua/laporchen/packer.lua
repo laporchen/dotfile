@@ -16,44 +16,35 @@ return require('packer').startup(function(use)
         use { 'ThePrimeagen/harpoon' }
 
         -- theme
-        use { "catppuccin/nvim", as = "catppuccin" }
         use { 'folke/tokyonight.nvim', { branch = 'main' } }
 
+        -- treesitter
         use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
         use { 'nvim-treesitter/playground' }
 
+        -- git
         use { 'lewis6991/gitsigns.nvim' }
         use { 'zivyangll/git-blame.vim' }
 
-        -- use { 'leafgarland/typescript-vim' }
-        -- use { 'peitalin/vim-jsx-typescript' }
-
         -- lsp
-        use {
-            "jose-elias-alvarez/null-ls.nvim",
-            requires = { { 'nvim-lua/plenary.nvim' } }
-        }
+        --[
+        -- use {
+        --     "jose-elias-alvarez/null-ls.nvim",
+        --     requires = { { 'nvim-lua/plenary.nvim' } }
+        -- }
+        use { 'onsails/lspkind-nvim' }
+
         use { 'MunifTanjim/prettier.nvim' }
         use { 'MunifTanjim/eslint.nvim' }
-        use {
-            'VonHeikemen/lsp-zero.nvim',
-            branch = 'v2.x',
-            requires = {
-                -- LSP Support
-                { 'neovim/nvim-lspconfig' }, -- Required
-                { -- Optional
-                    'williamboman/mason.nvim',
-                    run = function()
-                        pcall(vim.cmd, 'MasonUpdate')
-                    end,
-                },
-                { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-                -- Autocompletion
-                { 'hrsh7th/nvim-cmp' }, -- Required
-                { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-                { 'L3MON4D3/LuaSnip' }, -- Required
-            }
-        }
+        use { 'neovim/nvim-lspconfig' }
+        use { 'williamboman/mason.nvim', run = function() pcall(vim.cmd, 'MasonUpdate') end }
+        use { 'williamboman/mason-lspconfig.nvim' }
+
+        -- Autocompletion
+        use { 'hrsh7th/nvim-cmp' }
+        use { 'hrsh7th/cmp-nvim-lsp' }
+        use { 'hrsh7th/cmp-buffer' }
+        use { 'L3MON4D3/LuaSnip' }
 
         -- misc.
         use {
