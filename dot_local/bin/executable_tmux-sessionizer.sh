@@ -24,7 +24,7 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
 fi
 
-if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+if [[ -n "$TMUX" ]]; then
     tmux switch -t $selected_name
     exit 0
 fi
