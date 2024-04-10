@@ -15,19 +15,34 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
-fi
+# ~/.teamocil/$selected_name.yml
+teamocil_layout="$HOME/.teamocil/$selected_name.yml"
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
+setup_layout() {
+  if [[ -f $teamocil_layout ]]; then
+    echo "Setting up layout for $selected_name"
+    tmux send -t $selected_name "teamocil $selected_name --here" ENTER
+    return
+  fi
+
+  tmux send -t $selected_name "echo 'No layout found for $selected_name', you can create one at $teamocil_layout" ENTER
+}
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    echo "Starting tmux"
     tmux new-session -ds $selected_name -c $selected
+    setup_layout
+elif ! tmux has-session -t=$selected_name 2> /dev/null; then
+    echo "Creating new session"
+    tmux new-session -ds $selected_name -c $selected
+    setup_layout
 fi
 
 if [[ -n "$TMUX" ]]; then
+    echo "Switching to session $selected_name"
     tmux switch -t $selected_name
     exit 0
 fi
 
+echo "Attaching to session $selected_name"
 tmux attach-session -t $selected_name
-
