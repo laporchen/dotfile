@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#taken from ThePrimeagen
+
+if git rev-parse --git-dir > /dev/null 2>&1; then
+  selected=$(git branch --sort=-committerdate | fzf)
+else
+  echo 'This is not a git repository'
+  exit 1
+fi
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+git checkout $selected
